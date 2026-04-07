@@ -1,0 +1,4 @@
+interface:
+  display_name: "Learn Code Style"
+  short_description: "Capture and apply language-specific coding styles."
+  default_prompt: "Learn coding style from samples and apply it by language in future authoring tasks."

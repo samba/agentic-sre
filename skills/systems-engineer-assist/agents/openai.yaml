@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systems Engineer Assist"
+  short_description: "Research-first authoring and validation for systems artifacts."
+  default_prompt: "Use this skill before and after generating systems code/scripts/config to ensure version-aligned correctness."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Systems Engineer Diagnose"
+  short_description: "Baseline-first recovery for ambiguous validation failures."
+  default_prompt: "Use this skill to recover confidence when validation signals are noisy or misleading."
