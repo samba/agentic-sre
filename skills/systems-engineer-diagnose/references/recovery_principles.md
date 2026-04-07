@@ -13,18 +13,18 @@ When a failure appears after the harness changes, the first question should be w
 Source templates, generator intent, and runtime artifacts are not the same thing.
 
 Examples:
-- a preseed template may render differently after env substitution or stripping rules
-- a generated bundle may omit profile values even when the source env file looks correct
-- a probe may inspect a stage marker in the wrong file or at the wrong time
+- a Helm, Flux, or preseed template may render differently after env/var substitution or stripping rules
+- a generated bundle may omit configuration or profile values even when the source env/vars file looks correct
+- a misconfigured probe may inspect a deployment or stage marker in the wrong file or at the wrong time
 
-The runtime only sees the rendered artifact. Debugging begins by checking what actually got consumed.
+The runtime only sees the rendered artifacts. Debugging begins by checking what actually got consumed.
 
 ## Why modified harnesses are provisional
 
 A harness can become a participant in the failure:
-- a new console mode can change whether prompts appear
-- a new SSH probe can change whether timing looks healthy
-- a timeout can kill a process before it would have completed
+- runtime configuration changes can prevent markers and signals from appearing at expected times
+- an SSH probe or pod liveness probe is transient, and health status may change over time
+- a timeout can kill a process before it would have completed, in time sensitive flows
 - extra logging can hide or reveal the very event being measured
 
 Because of that, conclusions drawn from a modified harness should be labeled provisional until the same behavior is verified by a simpler or known-good path.
@@ -60,19 +60,38 @@ The rule is simple:
 - if the control fix does not produce clear signal, stop and research
 - then return with a stronger hypothesis and a narrower, more authoritative control path
 
-## Why feature preservation matters during recovery
+## Why unconstrained debugging destroys uncommitted value-add work
 
-Recovery should restore confidence without silently deleting capabilities that the system already provides. A useful automation feature, such as topology detection or RAID setup, should not be sacrificed simply because the new debugging or validation machinery made the path harder to reason about.
+A significant failure mode is uncontrolled diagnostic iteration that contaminates unrelated, uncommitted value-add changes until the only practical recovery is to revert the full working tree.
 
-The risk is not only that a feature disappears temporarily. The bigger risk is that diagnostic complexity gets pushed into the core path until the only practical way back is to remove valuable behavior. Once that happens, the recovery process has already crossed a boundary it should not have crossed.
+In that situation, even promising value-add work is no longer trustworthy because it is mixed with speculative, low-signal debugging edits. The rollback may be operationally correct, but it still causes major time loss by discarding hours of unproven but potentially valuable work.
 
-Mitigation:
-- freeze the feature set while recovering the baseline
-- keep debug and proof layers optional and outside the core provisioning path
-- if a useful feature must be removed to regain confidence, stop and redesign the boundary instead of normalizing the loss
-- reintroduce the feature only after the baseline is stable and the split is clear
+Primary risks:
+- change-set contamination: debugging edits and value-add edits become inseparable
+- causality collapse: no clear mapping between edits and observed runtime effects
+- forced full revert: fastest safe recovery discards both bad diagnostics and unfinished value-add
+- hidden iteration cost: long debug loops consume time without increasing confidence
 
-This is especially important for features that improve automation value, because they are easy to lose when the test path becomes too tangled to support them safely.
+Mitigation policy:
+- isolate work streams from the start:
+  - keep value-add implementation and diagnostic experiments in separate commits/branches/worktrees
+- enforce bounded debug loops:
+  - each loop must name one hypothesis, one expected signal, one stop condition
+- apply a no-signal cutoff:
+  - if a loop does not improve signal, stop automated editing and switch to evidence collection
+- checkpoint aggressively:
+  - commit or stash value-add progress before risky diagnostic edits
+- treat workspace hygiene as a recovery control:
+  - do not continue debugging in a dirty tree where unrelated changes are present
+- require escalation gates:
+  - after repeated no-signal loops, pause implementation and require human review on next steps
+
+Recovery rule when contamination has already occurred:
+- prioritize fast restoration of a known-good baseline, even if it means reverting uncommitted value-add work
+- then reconstruct value-add work from clean checkpoints only (commits/stashes/patches), not memory or mixed diffs
+
+Exit condition for this section:
+- diagnostic progress is bounded and evidence-led, and value-add work remains recoverable even if diagnostics must be fully reverted.
 
 ## Why independent calibration signals matter
 
@@ -93,7 +112,7 @@ The important idea is that a failure is often explained by the interaction of se
 
 Failure type matters because it changes which deltas are worth investigating:
 - a timeout points at progress gates, late-stage stalls, or missing signals
-- a prompt points at frontend, preseeding, or ordering issues
+- a log or configuration value points at mismatched options, overlays, templates or ordering issues
 - a crash loop points at restart behavior, unit state, or repeated failure conditions
 - a missing fetch points at network, URL, or boot-time readiness issues
 
