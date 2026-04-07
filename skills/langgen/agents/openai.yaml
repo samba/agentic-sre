@@ -1,0 +1,4 @@
+interface:
+  display_name: "Langgen"
+  short_description: "Corpus-driven validator, parser, and interpreter generation."
+  default_prompt: "Use langgen to acquire corpus evidence and derive EBNF, parsers, validators, and interpreter mappings."

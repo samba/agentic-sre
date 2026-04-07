@@ -1,0 +1,53 @@
+{
+  "lua-default": {
+    "math.abs": "stdlib.lua.math.abs",
+    "math.floor": "stdlib.lua.math.floor",
+    "math.max": "stdlib.lua.math.max",
+    "math.min": "stdlib.lua.math.min",
+    "string.len": "stdlib.lua.string.len",
+    "string.lower": "stdlib.lua.string.lower",
+    "string.upper": "stdlib.lua.string.upper",
+    "table.insert": "stdlib.lua.table.insert",
+    "table.concat": "stdlib.lua.table.concat"
+  },
+  "python-default": {
+    "math.ceil": "stdlib.python.math.ceil",
+    "math.floor": "stdlib.python.math.floor",
+    "math.sqrt": "stdlib.python.math.sqrt",
+    "len": "stdlib.python.builtins.len",
+    "sum": "stdlib.python.builtins.sum",
+    "min": "stdlib.python.builtins.min",
+    "max": "stdlib.python.builtins.max",
+    "str.lower": "stdlib.python.str.lower",
+    "str.upper": "stdlib.python.str.upper"
+  },
+  "javascript-default": {
+    "Math.abs": "stdlib.javascript.Math.abs",
+    "Math.floor": "stdlib.javascript.Math.floor",
+    "Math.max": "stdlib.javascript.Math.max",
+    "Math.min": "stdlib.javascript.Math.min",
+    "JSON.parse": "stdlib.javascript.JSON.parse",
+    "JSON.stringify": "stdlib.javascript.JSON.stringify",
+    "String.toLowerCase": "stdlib.javascript.String.toLowerCase",
+    "String.toUpperCase": "stdlib.javascript.String.toUpperCase"
+  },
+  "c-default": {
+    "stdlib.abs": "stdlib.c.stdlib.abs",
+    "stdlib.labs": "stdlib.c.stdlib.labs",
+    "math.floor": "stdlib.c.math.floor",
+    "math.ceil": "stdlib.c.math.ceil",
+    "math.fabs": "stdlib.c.math.fabs",
+    "string.strlen": "stdlib.c.string.strlen",
+    "string.strcmp": "stdlib.c.string.strcmp"
+  },
+  "go-default": {
+    "math.Abs": "stdlib.go.math.Abs",
+    "math.Ceil": "stdlib.go.math.Ceil",
+    "math.Floor": "stdlib.go.math.Floor",
+    "math.Max": "stdlib.go.math.Max",
+    "math.Min": "stdlib.go.math.Min",
+    "strings.ToLower": "stdlib.go.strings.ToLower",
+    "strings.ToUpper": "stdlib.go.strings.ToUpper",
+    "strings.TrimSpace": "stdlib.go.strings.TrimSpace"
+  }
+}
