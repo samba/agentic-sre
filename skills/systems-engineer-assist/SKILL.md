@@ -58,6 +58,9 @@ If validation fails, remains noisy, or is ambiguous, invoke `systems-engineer-di
 6. If signals remain ambiguous, pause further expensive runs and research authoritative sources before the next change.
 7. Iterate until mismatch cause is explicit and validation outcome is decisive.
 
+Recovery examples across networking, orchestration, deployment, installation, and Kubernetes stack integration are documented in:
+- `../systems-engineer-diagnose/references/recovery_principles.md`
+
 ## Research Domains (Authoring Drivers)
 
 Run these domains whenever they are relevant to the target artifact.
