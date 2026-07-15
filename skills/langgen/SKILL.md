@@ -68,9 +68,15 @@ Use this skill when generated structured artifacts appear wrong, or when a corpu
 ## Workflow
 
 1. Collect authoritative corpus
+- For new corpus-driven work, initialize a local scaffold first:
+  - `python3 skills/langgen/scripts/scaffold.py init --root <parent> --name <language-or-domain> --target <target-language>`
 - Download/mirror upstream samples from official sources.
 - Treat these as the acceptance corpus.
 - During collection, search for open-source EBNF/grammar specifications for the same language/version and record provenance.
+- Register acquired samples as they are added:
+  - authoritative samples: `python3 skills/langgen/scripts/scaffold.py add-sample --root <scaffold-root> --source <source-kind> --path <sample-file>`
+  - holdout samples: add `--holdout`
+  - invalid or generated-regression samples: add `--known-bad`
 
 2. Derive structural model
 - Infer token classes and grammar shape from corpus evidence.
@@ -84,6 +90,9 @@ Use this skill when generated structured artifacts appear wrong, or when a corpu
 
 4. Record regression fixtures
 - Keep failing generated shapes as regression fixtures.
+- Refresh report skeletons after corpus or fixture changes:
+  - `python3 skills/langgen/scripts/scaffold.py report --root <scaffold-root>`
+- Use `reports/corpus-coverage.json`, `reports/holdout-conformance.json`, and `reports/rejection-conformance.json` to document gate status and unresolved gaps.
 
 5. Optional: produce language artifacts
 - If requested, emit grammar, parser(s), and interpreter runtime assets.
@@ -104,6 +113,7 @@ When requested, emit a project-local EBNF file representing the corpus-derived g
 
 Suggested output path pattern:
 - `grammar/<language-name>.ebnf`
+- In scaffolded projects, place generated grammar output under `<scaffold-root>/grammar/`.
 
 Requirements:
 - Keep EBNF aligned to accepted corpus structure.
@@ -153,6 +163,7 @@ Requirements:
 
 Suggested output path pattern:
 - `parsers/<target-language>/...`
+- In scaffolded projects, place generated parsers under `<scaffold-root>/generated/parsers/`.
 
 ## Interpreter Generation Option
 
@@ -165,6 +176,7 @@ When requested, generate an interpreter that:
 
 Suggested output path pattern:
 - `interpreter/<target-language>/...`
+- In scaffolded projects, place generated interpreters under `<scaffold-root>/generated/interpreters/`.
 
 ## Runtime Mapping Model
 
