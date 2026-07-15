@@ -23,6 +23,15 @@ This skill is authoring-first: invoke before writing substantive code/config and
 
 Ensure generated code/scripts/configuration are correct for target environments before broad rollout, and detect/resolve mismatches during validation against distro/version/runtime realities.
 
+## Reliability Tenet
+
+Needless complexity reduces reliability.
+
+- Prefer the simplest mechanism that actually achieves the required value.
+- If a layer only translates, duplicates, or hides a native capability, default to removing it and using the native primitive directly.
+- If static declaration plus thin generic handlers can achieve the same value, prefer that over an imperative wrapper layer.
+- Do not assume a layer provides safety, auditability, portability, or flexibility just because it exists; verify that it actually delivers those properties in practice.
+
 ## Required Lifecycle
 
 ### 1) Pre-Authoring Research (mandatory)
@@ -45,6 +54,9 @@ After generating or editing artifacts:
 2. Identify mismatches (syntax, directives, APIs, package names, module assumptions, orchestration behavior).
 3. Resolve mismatches with smallest safe delta.
 4. Re-validate until aligned.
+
+5. When a deployment shape changes, move producer, consumer, and validation together in the same change set.
+   - Treat stale validation against retired handoff artifacts as a contract bug, not a test bug.
 
 ### 3) Validation-Failure Recovery Loop (mandatory on failure)
 
@@ -118,6 +130,8 @@ Translate research into explicit constraints before implementation, for example:
 - required modules/services/features,
 - unsupported combinations and required fallbacks.
 
+When a stable platform primitive already exposes the needed behavior, use that primitive directly instead of synthesizing the same behavior in shell or wrapper code.
+
 If constraints are unknown, pause authoring and research first.
 
 ## Validation Expectations
@@ -126,6 +140,7 @@ If constraints are unknown, pause authoring and research first.
 2. Confirm assumptions tied to distro/version/runtime.
 3. Report concrete mismatches and corrective action.
 4. Prefer one change-class at a time when environment validation is expensive.
+5. When the implementation contract moves, update the producer, consumer, and tests together rather than carrying forward compatibility glue.
 
 ## Exit Criteria
 

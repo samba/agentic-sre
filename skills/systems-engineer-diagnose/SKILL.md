@@ -11,6 +11,8 @@ Use this skill when a working manual path exists, but the current harness, gener
 
 The workflow is baseline-first: trust the known-good path, inspect the rendered artifact that the runtime actually consumed, and only then expand the scope of probing or automation.
 
+When a failure appears after a structural migration, suspect a stale contract assertion or a wrapper-induced mismatch before chasing component internals.
+
 ## When To Use
 
 Use this skill when:
@@ -26,13 +28,20 @@ Use this skill when:
    - Anchor on the simplest known-good path and treat it as the current truth.
    - Freeze feature scope during recovery; do not remove useful capability to simplify diagnosis.
 
+1.5. **Run an assumption audit before edits**
+   - Record what is known, what is assumed, and which assumptions are currently unverified.
+   - For high-risk or runtime-sensitive changes, verify critical assumptions before implementation.
+   - If a critical assumption cannot be verified quickly, narrow scope or switch to signal-gathering first.
+
 2. **Verify the runtime artifact, not source intent**
    - Inspect what was actually rendered and consumed at runtime.
    - Reject conclusions based only on templates, generator intent, or partial logs.
+   - Compare the declared source, the rendered artifact, and the runtime consumer in that order.
 
 3. **Classify the current signal quality**
    - Label current evidence as one of: not observed, observed late, observed failure, proven failure.
    - Treat harness-influenced output as provisional until confirmed against the baseline shape.
+   - If the current path diverges from a known-good baseline after a contract shift, label the issue as a likely stale contract assertion until proven otherwise.
 
 4. **Define the next narrow hypothesis**
    - Change one meaningful variable at a time, unless a coupled interaction is the explicit hypothesis.
@@ -49,6 +58,7 @@ Use this skill when:
 7. **Perform divergence analysis after witness**
    - Compare witness vs noisy path deltas (config, timing, environment, probe placement, defaults).
    - Rank deltas by failure type and stage relevance; allow multi-factor causes when evidence suggests coupling.
+   - Give extra weight to differences introduced by retired wrapper layers or moved producer/consumer boundaries.
 
 8. **Escalate to authoritative research when controls fail**
    - If added controls still do not produce clear evidence, stop guessing.
@@ -214,8 +224,10 @@ Every additional probe, gate, or debug mode consumes complexity budget.
 - Treat brittle “tests of tests” as low-value unless they protect a durable contract.
 - Label conclusions as provisional when they depend on modified instrumentation.
 - Verify the rendered output before making claims about runtime behavior.
+- For high-risk paths, run and record an assumption audit before implementation (known facts, assumptions, unverified assumptions).
 - Preserve useful features unless the baseline proves they are the problem.
 - Keep recovery changes from shrinking the system’s useful behavior.
+- If a deployment contract changed, verify the producer, rendered artifact, and runtime consumer together before changing component internals.
 
 ## References
 
