@@ -42,15 +42,18 @@ Before generating or changing implementation artifacts:
 - distribution(s), version(s), kernel/runtime family,
 - orchestration/deployment substrate,
 - policy/auth boundaries.
-2. Run the research domains below.
-3. Convert findings into explicit authoring constraints.
-4. Author only against those constraints.
+2. Use `references/research-validation-checklist.md` to record relevant
+   research checks and required evidence.
+3. Run the research domains below.
+4. Convert findings into explicit authoring constraints.
+5. Author only against those constraints.
 
 ### 2) Post-Generation Validation (mandatory)
 
 After generating or editing artifacts:
 
-1. Validate generated output against target environment matrix.
+1. Use `references/research-validation-checklist.md` to validate generated
+   output against the target environment matrix and retain evidence.
 2. Identify mismatches (syntax, directives, APIs, package names, module assumptions, orchestration behavior).
 3. Resolve mismatches with smallest safe delta.
 4. Re-validate until aligned.
@@ -76,6 +79,8 @@ Recovery examples across networking, orchestration, deployment, installation, an
 ## Research Domains (Authoring Drivers)
 
 Run these domains whenever they are relevant to the target artifact.
+Use `references/research-validation-checklist.md` as the compact audit guide
+for deciding which checks and evidence are required.
 
 1. Distribution package database research
 - Verify package names, splits/transitions, availability, and version lineage in official package indexes.
@@ -105,20 +110,52 @@ Run these domains whenever they are relevant to the target artifact.
 - Search Artifact Hub for deployable components and check maintenance/compatibility/trust signals.
 - Validate Flux/Helm/Kustomize capabilities and limits for install/upgrade/drift strategy.
 
-## Integrated Skills Policy
+## Cross-Cutting Checks
 
-### Default-on (invoke unless disqualified)
+Apply these checks directly when they affect the artifact. Do not require
+separate skills for them.
 
-- `security-best-practices`
-- `security-ownership-map`
-- `security-threat-model`
+1. Security posture
+- Identify trust boundaries, privilege level, secret handling, network exposure,
+  persistence, and update paths touched by the change.
+- Prefer least privilege, explicit allowlists, verified artifact provenance,
+  safe defaults, and fail-closed behavior for ambiguous policy decisions.
+- Avoid logging secrets, tokens, private keys, kubeconfigs, credentials, or
+  customer data. Redact existing examples before reusing them in docs/tests.
 
-Disqualify only when explicitly out of scope for the current task (for example strictly non-security, user-excluded, or insufficient repo metadata for ownership mapping).
+2. Ownership and review boundaries
+- Identify the owning component, deployment path, and operational team or
+  maintainer implied by repo metadata, CODEOWNERS, service names, or nearby
+  docs.
+- Keep changes inside the owning boundary. If producer, consumer, and validator
+  cross ownership lines, call that out and update only the files in scope unless
+  the task explicitly allows the wider change.
+- When ownership cannot be determined, state the uncertainty and choose the
+  smallest reversible change.
 
-### Conditional-on (invoke only when triggered)
+3. Lightweight threat model
+- For systems-facing changes, ask what an attacker, misconfigured workload, or
+  compromised dependency could do with the new behavior.
+- Check entry points, identities, permissions, data flows, persistence points,
+  rollback paths, and audit/observability coverage.
+- Convert plausible abuse cases into concrete constraints or validation steps.
 
-- `gh-fix-ci`: only when GitHub Actions/PR checks are active blockers.
-- `sentry`: only when Sentry telemetry is available/relevant or explicitly requested.
+4. CI and release blockers
+- When GitHub Actions or other PR checks fail, inspect the failing job, command,
+  environment, and artifact before changing implementation.
+- Prefer reproducing the exact failing command locally or in the documented test
+  harness; if reproduction is unavailable, make the smallest evidence-backed
+  fix and report the remaining uncertainty.
+- Treat CI configuration changes as release-path changes: validate syntax,
+  permissions, secrets usage, and runner/platform assumptions.
+
+5. Telemetry and incident signals
+- Use Sentry or other telemetry only when the project exposes it or the user
+  asks for it. Do not invent telemetry dependencies.
+- If telemetry is available, correlate errors with release version, environment,
+  affected component, and user-visible impact before proposing code changes.
+- Keep observability changes low-cardinality, non-sensitive, and tied to an
+  actionable diagnostic question.
 
 ## Authoring Constraints Derivation
 
