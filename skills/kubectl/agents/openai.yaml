@@ -1,0 +1,3 @@
+display_name: Kubectl Explicit Context
+short_description: Discover kubeconfigs/contexts and run kubectl with explicit config, context, and SSH key.
+default_prompt: Discover Kubernetes kubeconfig files and contexts, then inspect cluster state with explicit kubectl configuration.
