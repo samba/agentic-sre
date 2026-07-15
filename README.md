@@ -128,6 +128,14 @@ A practical default mapping:
         └── assets/       (optional)
 ```
 
+## Skill Domain Boundary
+
+This repository should only version skills that improve software engineering, systems engineering, infrastructure troubleshooting, language/config generation, code style alignment, or commit quality.
+
+Before adding or syncing a skill into this repo, verify that it belongs to this domain. Planning, reflection-loop, product workflow, OpenAI API, plugin authoring, document rendering, image generation, and general marketplace/installer skills belong in a different skill stack unless they directly support the SRE/software systems domain here.
+
+`make import` is intentionally broad: it copies every discovered `SKILL.md` directory from supported local agent homes into `./skills`, replacing same-named directories. Treat imported untracked skill directories as review candidates, not automatically accepted repo content. Remove irrelevant imported directories before staging changes.
+
 ## Minimal Operations
 
 This repo includes sync helpers, but they are operational support, not the core product:
