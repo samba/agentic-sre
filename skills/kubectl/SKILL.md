@@ -181,6 +181,19 @@ Before running a command, verify the rendered command includes:
 - `--context`, except for the context-discovery commands above
 - for SSH: `ssh -i`
 
+Run rendered `kubectl` commands through the bundled wrapper so the controls are
+enforced before execution:
+
+```bash
+python3 "$CODEX_HOME/skills/kubectl/scripts/kubectl_wrapper.py" -- \
+  kubectl --kubeconfig "$KUBECONFIG_PATH" --context "$KUBE_CONTEXT" get pods -A
+```
+
+For SSH-mediated commands, pass the full rendered command to the wrapper. Use
+`--dry-run` only when you need a preflight without execution. This wrapper is
+read-only: mutating or sensitive commands are rejected even if the user has
+approved that operation class.
+
 If a command is copied from documentation, rewrite it to include the explicit kubeconfig and context before running it.
 
 If a diagnostic loop is needed, keep it bounded with a timeout or fixed iteration count.
