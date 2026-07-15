@@ -1,1 +1,3 @@
 .kanban/kanban.db
+.kanban/kanban.db-shm
+.kanban/kanban.db-wal
