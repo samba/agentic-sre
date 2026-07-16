@@ -49,6 +49,24 @@ Best for:
 - misleading logs,
 - harness-induced false negatives.
 
+### `security-compliance-review`
+
+Use before committing design or implementation work that could affect security, compliance posture, audit evidence, customer trust, or certification readiness.
+
+What it adds:
+
+- proactive security and compliance review gates,
+- ISO/IEC 27001 and ISO/IEC 27017 risk/control framing,
+- SOC 2 evidence and Trust Services Criteria awareness,
+- CMMI-style process maturity checks,
+- concrete blocker/follow-up/advisory output for pre-commit review.
+
+Best for:
+
+- new projects and services,
+- cloud services and customer-facing systems,
+- changes touching data handling, access control, auditability, supplier dependencies, secrets, logging, monitoring, backup, or CI/CD.
+
 ### `langgen`
 
 Use for generated structured config or custom language/tooling work driven by authoritative corpora.

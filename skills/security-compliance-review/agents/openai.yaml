@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Compliance Review"
+  short_description: "Pre-commit review for security, compliance, audit evidence, and certification readiness."
+  default_prompt: "Review this design or implementation for security/compliance risks before commit, including ISO 27001, ISO 27017, SOC 2, CMMI-style maturity, and adjacent security concerns."
