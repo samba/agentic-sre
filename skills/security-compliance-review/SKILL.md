@@ -15,6 +15,7 @@ Use this skill for:
 
 - new projects, services, APIs, integrations, deployment workflows, or data stores
 - changes touching authentication, authorization, secrets, encryption, logging, monitoring, backup, recovery, tenancy, data lifecycle, vendor integrations, or CI/CD
+- research datasets, source-plugin integrations, public-data pipelines, survey or microdata access, data licensing, redistribution, provenance, evidence manifests, credentialed APIs, and analytics outputs that could affect customer trust or compliance evidence
 - design reviews where ISO/IEC 27001, ISO/IEC 27017, SOC 2, CMMI-style maturity, customer security questionnaires, or audit readiness may matter
 - pre-commit review when security or compliance risks should be surfaced before code lands
 
@@ -30,6 +31,7 @@ Before reviewing, identify:
 - deployment/runtime environment
 - operators and support model
 - evidence already produced by tests, logs, docs, CI, or design artifacts
+- data sources, licenses, access conditions, provenance records, retention expectations, and whether personal, household, respondent-level, or sensitive data is involved
 - relevant compliance drivers: ISO/IEC 27001, ISO/IEC 27017, SOC 2 trust service criteria, customer contract, regulatory expectation, or internal maturity goal
 
 If the project is new, require a short security/compliance assumptions section before commit.
@@ -69,6 +71,7 @@ Before approving a commit, ensure:
 - cloud/provider/customer responsibilities are clear when cloud services are involved
 - tests or validation cover the security-relevant behavior touched by the change
 - residual risks are documented with owner, follow-up, and acceptance rationale
+- dataset licenses, redistribution limits, restricted-data access, and credential redaction are explicit when data sources are touched
 
 If any item is unknown for a new project, treat it as `required-follow-up` at minimum.
 

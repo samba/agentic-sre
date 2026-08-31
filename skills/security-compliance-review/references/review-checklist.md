@@ -60,6 +60,8 @@ For each applicable category, ask:
 - Secure SDLC: security requirements, code review, dependency review, and CI gates are present when relevant.
 - Supply chain: dependencies, base images, packages, provenance, and update strategy are known.
 - Data governance: classification, minimization, retention, deletion, and cross-border concerns are considered.
+- Research data governance: public-data licenses, restricted microdata terms, redistribution limits, survey respondent privacy, source provenance, canonicalization, evidence manifests, and derived-output sensitivity are considered.
+- Source-plugin governance: API credentials are supplied through approved paths, secrets are redacted from provenance/logs, rate limits and terms are respected, raw payloads are retained only as allowed, and blocked sources fail closed.
 - Vulnerability management: detection, triage, remediation, and exception handling are defined.
 - Change management: risky changes are reviewable, reversible, and observable.
 - Customer commitments: public claims, contracts, questionnaires, and documentation match actual implementation.
