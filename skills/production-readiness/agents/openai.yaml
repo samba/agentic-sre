@@ -1,0 +1,4 @@
+interface:
+  display_name: "Production Readiness"
+  short_description: "Gate launches on operability, recovery, and ownership evidence."
+  default_prompt: "Assess this release candidate for measurable reliability, observability, capacity, delivery safety, recovery, incident response, support ownership, and controlled launch evidence."
