@@ -1,168 +1,253 @@
-# agentic-sre
+# Agentic SRE
 
-A curated skill set for agentic software and systems work.
+Agentic SRE is an independently installable suite of software-product and
+systems specialist skills. It supplies domain judgment from product discovery
+through sustained production operation, with proactive assurance during work
+and independent control review before acceptance.
 
-This repository exists to improve day-to-day agent output quality through reusable, high-leverage skills. The primary value is not automation glue; it is the operational behavior encoded in each skill.
+The suite is designed to participate in a durable coordinator such as
+[Agentic Delta](https://github.com/samba/agentic-delta), but each skill can also
+serve a direct, bounded request. SRE skills do not own backlog priority,
+workflow state, permission expansion, risk acceptance, spending, launch, or
+release authority.
 
-## Intent
+## Intended Use
 
-These skills are designed to make agent work:
+Use these skills to:
 
-- more evidence-based,
-- more consistent with your coding style,
-- safer in high-risk systems tasks,
-- easier to audit and maintain over time.
+- turn product goals into evidence-backed product and architecture contracts;
+- research standards, platform capabilities, open-source solutions, and
+  templates before creating custom mechanisms;
+- build and validate bounded implementation slices;
+- evaluate security, privacy, compliance, dependencies, provenance, and
+  operational readiness;
+- author or diagnose version-sensitive system artifacts and runtime behavior;
+- learn project coding conventions and produce evidence-backed change records;
+- review an existing codebase from every relevant specialist perspective;
+- contribute project principles and tenets early enough to guide production;
+- assess discovered bugs for goal-relative impact before prioritization.
 
-## Core Capabilities
+Use the smallest relevant set for a direct task. Under a durable project
+workflow, enroll all available specialist classes early and let each specialist
+determine applicability rather than assuming silence means approval.
 
-### `systems-engineer-assist`
+## How the Suites Compose
 
-Use this before and during systems-facing changes (scripts, packaging, Kubernetes, Linux config).
+Agentic Delta coordinates; Agentic SRE specializes.
 
-What it adds:
+1. The coordinator supplies the goal, project context, assigned specialist
+   class and version, engagement role, frozen tenets, review-plan item,
+   autonomy envelope, artifact revision, and required output.
+2. The matching SRE skill activates from that role and task context without the
+   coordinator hard-coding a repository-specific skill name.
+3. The specialist produces domain work or an advisory handoff with findings,
+   evidence, risks, obligations, applicability, and gate recommendation.
+4. The coordinator validates and atomically ingests the handoff, routes rework,
+   and retains all state-transition and authority decisions.
 
-- mandatory pre-authoring research against target distro/runtime constraints,
-- explicit compatibility checks before rollout,
-- structured post-generation validation,
-- disciplined failure handling with smallest-safe-delta iteration.
+Every participating skill packages its coordinated-handoff contract and source
+history locally. A copied skill must not depend on the repository checkout.
 
-Best for:
+## Product-to-Production Workflow
 
-- cross-distro packaging/deployment work,
-- service configuration changes,
-- infra code where environment drift can break generated artifacts.
+The lifecycle has a normal causal order, but independent research and read-only
+review may overlap when dependencies permit.
 
-### `systems-engineer-diagnose`
+1. **Product discovery — `software-product-discovery`.** Establish users,
+   problems, workflows, outcomes, constraints, quality attributes,
+   accessibility, hypotheses, open-source alternatives, and the smallest
+   useful validation slices. Do not select architecture before the product
+   contract is sufficiently clear.
+2. **Architecture — `software-architecture`.** Compare proven solutions,
+   define boundaries and contracts, model data and failure behavior, evaluate
+   quality-attribute tradeoffs, record decisions, and define fitness checks and
+   incremental slices.
+3. **Design assurance — cross-cutting specialists.** Security, supply-chain,
+   production, compatibility, delivery, convention, and other enrolled
+   specialists contribute sourced constraints and verifiable obligations before
+   implementation hardens. Each may opt out with evidence and rationale.
+4. **Delivery — `software-delivery`.** Implement bounded accepted slices,
+   preserve unrelated work, keep interfaces and generated artifacts aligned,
+   and produce risk-selected, revision-bound validation evidence.
+5. **Control review — applicable specialists.** Independently verify the exact
+   candidate against accepted requirements, frozen tenets, assurance
+   obligations, and gate-specific evidence. Route defects to the earliest stage
+   capable of correcting them.
+6. **Supply-chain acceptance — `software-supply-chain`.** Verify source,
+   provenance, license posture, vulnerabilities, pinning, SBOM coverage,
+   maintenance, update ownership, and replacement path for affected inputs and
+   artifacts.
+7. **Production readiness — `production-readiness`.** Verify user-centred
+   objectives, observability, capacity, delivery safety, recovery, rollback,
+   incident/support ownership, launch controls, and post-launch evidence.
+8. **Change record — `smart-commits`.** Derive concise rationale, impact, and
+   proof from the exact revision and accepted evidence. Message generation does
+   not authorize commit execution or release.
+9. **Operate and learn.** Feed observed outcomes, incidents, defects, recovery,
+   and operational evidence back to the coordinating learning system.
 
-Use when a manual path is known-good but automated/harnessed runs are noisy or contradictory.
+Passing tests alone does not imply security, supply-chain, architecture,
+product, or production acceptance. Conversely, no specialist recommendation
+can grant authority reserved for the coordinator or human owner.
 
-What it adds:
+## Assurance, Control, and Applicability
 
-- baseline-first diagnostics,
-- inspection of runtime-consumed artifacts (not template intent),
-- one-variable-at-a-time hypothesis testing,
-- progress-gated expensive test runs.
+- **Assurance** is proactive contribution to a good result. Material advice is
+  converted into an obligation tied to frozen project guidance, an owner, a
+  lifecycle stage, an affected artifact, and a verification method.
+- **Control** is independent evaluation of completed work and its evidence.
+  Control reviewers verify assurance obligations and identify gaps; they do not
+  retroactively substitute for omitted design-time assurance.
+- **Applicability** belongs to the assigned specialist. `not-applicable` is a
+  valid reviewed result only when it records examined scope and rationale.
 
-Best for:
+This pattern builds quality into production while retaining independent checks
+for omissions, drift, and incorrect assumptions.
 
-- flaky provisioning,
-- misleading logs,
-- harness-induced false negatives.
+## Existing Codebase Review and Bug Triage
 
-### `security-compliance-review`
+For an existing-codebase review, every enrolled specialist compares observed
+artifacts with the project goal and effective principles and tenets. Each
+returns evidence, risks, deficiencies, and the earliest repair stage, or an
+evidenced `not-applicable` disposition.
 
-Use before committing design or implementation work that could affect security, compliance posture, audit evidence, customer trust, or certification readiness.
+For a bug, each specialist reports applicability, goal impact, urgency, risk,
+and rationale without setting backlog rank or authorizing corrective work. The
+coordinator combines these assessments with the remaining product backlog and
+creates a governed repair task when prioritized.
 
-What it adds:
+## Specialist Skills
 
-- proactive security and compliance review gates,
-- ISO/IEC 27001 and ISO/IEC 27017 risk/control framing,
-- SOC 2 evidence and Trust Services Criteria awareness,
-- CMMI-style process maturity checks,
-- concrete blocker/follow-up/advisory output for pre-commit review.
+Lifecycle and cross-cutting engineering:
 
-Best for:
+- `software-product-discovery`: users, value, requirements, accessibility,
+  outcomes, reuse opportunities, and validation slices.
+- `software-architecture`: boundaries, contracts, alternatives, tradeoffs,
+  failure design, ADRs, and fitness checks.
+- `software-delivery`: implementation quality, maintainability, traceable
+  verification, and releasable engineering evidence.
+- `security-compliance-review`: design-time and pre-release security, privacy,
+  control, audit, and compliance review.
+- `software-supply-chain`: dependency and artifact provenance, license,
+  vulnerability, pinning, SBOM, maintenance, and replacement risk.
+- `production-readiness`: service objectives, telemetry, capacity, deployment,
+  recovery, incident response, support, and launch readiness.
 
-- new projects and services,
-- cloud services and customer-facing systems,
-- changes touching data handling, access control, auditability, supplier dependencies, secrets, logging, monitoring, backup, or CI/CD.
+Focused production support:
 
-### `langgen`
+- `systems-engineer-assist`: target-version compatibility research, authoring
+  constraints, and rendered/runtime artifact validation.
+- `systems-engineer-diagnose`: baseline-first diagnosis with discriminating,
+  bounded experiments and explicit uncertainty.
+- `learn-code-style`: project-local, language-specific convention learning and
+  application without confusing preference with correctness.
+- `smart-commits`: thread- and task-informed working-draft partitioning plus
+  concise, evidence-backed commits and change-record text.
+- `langgen`: specification- and corpus-grounded structured-language tooling.
+- `kubectl`: explicit-context, least-privilege Kubernetes inspection and
+  troubleshooting.
 
-Use for generated structured config or custom language/tooling work driven by authoritative corpora.
+## Improvement Strategy
 
-What it adds:
+Each specialist improves project quality without self-authorizing reusable
+policy changes:
 
-- corpus-first grammar/AST derivation,
-- strict validation gates before broad generation,
-- optional EBNF/parser/interpreter production,
-- configurable runtime mapping for operators/stdlib behavior.
+- propose principles only for durable domain outcomes;
+- propose tenets as scoped, actionable standard work with verification;
+- cite authoritative sources and preserve superseded interpretations;
+- research established libraries, templates, platform primitives, and
+  maintained open source before recommending custom construction;
+- prefer prevention and point-of-creation feedback over late defect discovery;
+- return recurring gaps, escaped defects, rework causes, and weak evidence to
+  the learning system;
+- separate project-specific guidance from portable method proposals;
+- evaluate reusable changes against evidence, compatibility, overlap,
+  regression limits, and rollback before promotion.
 
-Best for:
+An SRE specialist may recommend improvement. It cannot change its governing
+workflow, adopt residual risk, or promote its own recommendation.
 
-- DSL/config parser generation,
-- hardening generated config correctness,
-- validating language rules against real upstream examples.
+## Example Prompts
 
-### `learn-code-style`
+Product discovery before architecture:
 
-Use to infer and persist coding preferences from real user-authored examples.
+> Act as a software product-discovery specialist. Turn this idea into an
+> evidence-backed product contract, distinguish facts from hypotheses, research
+> comparable and open-source solutions, identify product-owner decisions, and
+> define the smallest slices that test the highest-risk assumptions.
 
-What it adds:
+Architecture with reuse-first research:
 
-- language-specific style extraction,
-- persistent style ledger updates,
-- downstream reuse during feature, bugfix, and refactor tasks.
+> Act as a software architecture specialist for the accepted product contract.
+> Research maintained libraries, platforms, reference architectures, and
+> templates before proposing custom components. Compare the viable options,
+> record tradeoffs and decisions, and define independently testable slices and
+> fitness checks.
 
-Best for:
+Design-time security assurance:
 
-- reducing stylistic churn in AI-authored diffs,
-- improving reviewability,
-- preserving team conventions across languages.
+> You are the systems security and privacy specialist. Review this design before
+> implementation hardens. Identify trust boundaries, sensitive data, abuse
+> cases, privileges, deterministic controls, and evidence needs. Convert
+> material guidance into verifiable assurance obligations; do not accept risk
+> or authorize release.
 
-### `smart-commits`
+Bounded implementation and verification:
 
-Use when writing or rewriting commit messages.
+> Act as the software delivery specialist for this accepted slice. Inspect
+> existing conventions and reusable components, implement only the bounded
+> scope, and return criterion-to-test mapping and exact revision-bound evidence.
+> Report architecture drift instead of hiding it in compatibility glue.
 
-What it adds:
+Production-readiness control review:
 
-- stronger semantic subject lines,
-- concise rationale/impact/proof body structure,
-- bounded detail for larger commits without commit-message sprawl.
+> You are the production operations specialist. Evaluate this release candidate
+> for user-centred objectives, observability, capacity, dependency failure,
+> rollout, rollback, recovery, incident response, and support ownership. Return
+> an advisory gate recommendation with exact evidence and unresolved risks.
 
-Best for:
+Ambiguous runtime diagnosis:
 
-- auditability,
-- faster PR/review context loading,
-- clearer rollback/debug history.
+> Act as a systems diagnostic specialist. A manual path works but the automated
+> harness times out. Establish the known-good witness, inspect what the runtime
+> consumed, separate observations from assumptions, rank falsifiable
+> hypotheses, and run only bounded discriminating probes within current access.
 
-## Recommended Usage Pattern
+Existing-codebase specialist review:
 
-Treat skills as task triggers:
+> Review this existing codebase as a software supply-chain specialist. Compare
+> it with the project goal and effective guidance, identify unmanaged or stale
+> dependencies, provenance and license uncertainty, SBOM gaps, and replacement
+> risk, and state the earliest repair stage for each finding.
 
-1. identify the risk profile of the task,
-2. invoke the matching skill(s) explicitly,
-3. execute with the skill’s workflow and gates,
-4. keep results and revisions in git.
+Project-specific improvement guidance:
 
-A practical default mapping:
+> Based on this project's goal and evidence, propose security principles and
+> actionable tenets that should guide future work. Cite authoritative sources,
+> include applicability and verification methods, and leave adoption to the
+> coordinator.
 
-- systems change planned: `systems-engineer-assist`
-- noisy/ambiguous failure: `systems-engineer-diagnose`
-- generated grammar/config pipeline: `langgen`
-- style consistency needed: `learn-code-style`
-- commit quality pass: `smart-commits`
+## Independent Packaging Invariant
 
-## Repository Structure
+Every directory under [`skills/`](skills/) is an independently installable
+package. Functionally important instructions, contracts, source history,
+templates, and helpers must be inside that skill directory and discoverable
+from `SKILL.md`.
 
-```text
-.
-├── Makefile
-└── skills/
-    └── <skill-name>/
-        ├── SKILL.md
-        ├── references/   (optional)
-        ├── scripts/      (optional)
-        └── assets/       (optional)
-```
+A runtime dependency on repository-level `docs/`, a sibling skill, a
+machine-local path, or an uninstalled checkout is an anti-pattern. Top-level
+documents may be non-normative maintainer notes only. Do not use synchronization
+scripts to make a skill complete after installation; validate the copied skill
+in isolation instead.
 
-## Skill Domain Boundary
+`kubectl` and `langgen` remain explicit legacy exceptions to the local-source
+history rule while their standing no-change scope is in effect; do not use
+their current repository-level reference pattern as precedent for new work.
 
-This repository should only version skills that improve software engineering, systems engineering, infrastructure troubleshooting, language/config generation, code style alignment, or commit quality.
+## Repository Scope
 
-Before adding or syncing a skill into this repo, verify that it belongs to this domain. Planning, reflection-loop, product workflow, OpenAI API, plugin authoring, document rendering, image generation, and general marketplace/installer skills belong in a different skill stack unless they directly support the SRE/software systems domain here.
-
-`make import` is intentionally broad: it copies every discovered `SKILL.md` directory from supported local agent homes into `./skills`, replacing same-named directories. Treat imported untracked skill directories as review candidates, not automatically accepted repo content. Remove irrelevant imported directories before staging changes.
-
-## Minimal Operations
-
-This repo includes sync helpers, but they are operational support, not the core product:
-
-- `make import`: pull discovered skills from supported local agent homes into `./skills`
-- `make install`: publish `./skills` to supported local agent homes
-
-Supported homes:
-
-- `~/.codex`
-- `~/.claude`
-- `~/.cursor`
+This repository owns software-product, software-delivery, supply-chain,
+production, systems, security, convention, and change-record specialist
+behavior. Durable backlog coordination, workflow state, evidence ingestion,
+priority, closure, and method-promotion authority belong to Agentic Delta or
+another compatible coordinator.
