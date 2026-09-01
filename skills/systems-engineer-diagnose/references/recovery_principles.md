@@ -1,5 +1,9 @@
 # Recovery Principles
 
+The external reliability and diagnostic basis is maintained in the
+[skill source history](sources.md). Examples and exact
+checkpoint policies in this reference are local interpretations.
+
 This reference expands the diagnostic discovery loop workflow into practical guidance for debugging systems that have already demonstrated a working manual path.
 
 ## Why the baseline matters
@@ -827,3 +831,8 @@ The recovery workflow maps cleanly onto a handful of human disciplines:
 - **Change control / safety engineering**: keep valuable features intact while recovering the system.
 
 These disciplines reinforce the same practical rule: reduce ambiguity cheaply, preserve useful behavior, and only spend more on expensive tests when the current signals still justify it.
+# Hypothesis Record
+
+For bounded diagnostic work retain: claim, predicted observation,
+discriminating probe, evidence for, evidence against, status, next cheapest
+informative test, cost/retry count, and falsification result or exemption.
