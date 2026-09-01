@@ -240,10 +240,6 @@ documents may be non-normative maintainer notes only. Do not use synchronization
 scripts to make a skill complete after installation; validate the copied skill
 in isolation instead.
 
-`kubectl` and `langgen` remain explicit legacy exceptions to the local-source
-history rule while their standing no-change scope is in effect; do not use
-their current repository-level reference pattern as precedent for new work.
-
 ## Repository Scope
 
 This repository owns software-product, software-delivery, supply-chain,
