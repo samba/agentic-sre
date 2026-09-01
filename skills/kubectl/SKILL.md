@@ -7,6 +7,10 @@ description: Use when discovering kubeconfig files or contexts, or inspecting, v
 
 Use this skill for read-only Kubernetes API inspection, diagnostic capture, and validation when command context must be deterministic.
 
+The explicit-context and least-privilege basis is mapped in the
+[skill source history](references/sources.md). The wrapper's read-only allowlist
+remains a stricter skill policy, not a Kubernetes requirement.
+
 ## Required Inputs
 
 Before running any non-discovery command, identify:
