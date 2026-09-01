@@ -1,65 +1,35 @@
-# Style Ledger
+# Project Style Ledger Template
 
-Last updated: 2026-04-06
+This packaged file defines the schema only. Never write project observations
+here. Instantiate it as `.agentic/style-ledger.md` in the active project.
 
-Use this ledger to store language-specific style preferences learned from user code, commit history, and external style guides.
+```markdown
+# Project Style Ledger
 
-## Language: Bash
+Project: <project identifier>
+Visibility: project-versioned|project-local-ignored
+Last updated: <ISO date>
 
-Confidence: low
+## Language: <language/ecosystem>
+
+Confidence: low|medium|high
+Last observed: <ISO date>
+
 Sources:
-- pending
+- <project-relative file/symbol, commit range, or authoritative guide URL>
 
 Preferred patterns:
-- pending
+- <actionable repeated pattern>
 
 Discouraged patterns:
-- pending
+- <actionable repeated anti-pattern>
 
-Notes:
-- pending
+Constraints and exceptions:
+- <correctness, safety, generated-code, public-API, or team exception>
 
-## Language: Python
+Promotion history:
+- <date, target profile, approved-by, portable rule, removal condition; or none>
+```
 
-Confidence: low
-Sources:
-- pending
-
-Preferred patterns:
-- pending
-
-Discouraged patterns:
-- pending
-
-Notes:
-- pending
-
-## Language: Go
-
-Confidence: low
-Sources:
-- pending
-
-Preferred patterns:
-- pending
-
-Discouraged patterns:
-- pending
-
-Notes:
-- pending
-
-## Language: TypeScript
-
-Confidence: low
-Sources:
-- pending
-
-Preferred patterns:
-- pending
-
-Discouraged patterns:
-- pending
-
-Notes:
-- pending
+Do not include raw proprietary snippets, secrets, personal data, or paths
+outside the project. Add language sections only when evidence exists.

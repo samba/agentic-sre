@@ -1,4 +1,4 @@
 interface:
   display_name: "Learn Code Style"
-  short_description: "Capture and apply language-specific coding styles."
-  default_prompt: "Learn coding style from samples and apply it by language in future authoring tasks."
+  short_description: "Capture project-local coding style with controlled promotion."
+  default_prompt: "Learn coding style from project evidence, persist it only in the project-local ledger, apply it by language, and require explicit approval before cross-project promotion."
