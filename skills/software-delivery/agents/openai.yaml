@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Delivery"
+  short_description: "Deliver accepted designs as bounded, proven software slices."
+  default_prompt: "Implement the accepted slice with reuse-first research, requirement traceability, risk-selected tests, revision-bound evidence, and an independent review handoff."
