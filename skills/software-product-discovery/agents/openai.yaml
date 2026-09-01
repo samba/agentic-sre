@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Product Discovery"
+  short_description: "Turn product goals into an evidence-backed product contract."
+  default_prompt: "Develop an evidence-backed product contract for this goal, separating facts, assumptions, decisions, reusable solutions, risks, and the smallest viable validation slices."
