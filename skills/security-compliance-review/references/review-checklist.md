@@ -2,6 +2,20 @@
 
 Use this checklist to review designs and implementation changes before commit. Apply only the sections relevant to the change, but record why omitted sections are not applicable when the work is a new project or a security-sensitive change.
 
+Use it once against proposed design and again against implemented evidence when
+the change is materially security- or compliance-relevant. Source mappings and
+version history are in [the skill source history](sources.md).
+
+## Agentic Systems
+
+- Can untrusted retrieved content alter control flow or tool selection?
+- Does a deterministic reference monitor enforce action and data-flow policy?
+- Are agent identities, credentials, and delegated capabilities least-privilege and scoped?
+- Can private data reach an unauthorized network, messaging, or storage sink?
+- Can memory, specialist metadata, MCP tools, or inter-agent messages be poisoned or spoofed?
+- Are code execution, retries, cascading actions, cancellation, and kill switches bounded and tested?
+- Are benign task utility and adversarial security evaluated separately?
+
 ## ISO/IEC 27001-Style ISMS Themes
 
 - Scope: affected systems, data, teams, suppliers, and locations are identifiable.
