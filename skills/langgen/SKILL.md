@@ -5,6 +5,12 @@ description: Use when debugging generated structured configs or deriving languag
 
 # Langgen
 
+The formal-grammar and provenance basis is mapped in the
+[skill source history](references/sources.md). Preserve target-language
+specification and corpus links in each generated project; the numeric corpus
+heuristics below are suite-local policies rather than requirements of those
+sources.
+
 ## Short Command Mode
 
 Support this shorthand invocation form:
