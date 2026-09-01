@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Supply Chain"
+  short_description: "Assess dependency provenance, licensing, health, and risk."
+  default_prompt: "Assess the affected software supply chain for provenance, licenses, maintenance, security, pinning, SBOM coverage, update ownership, and replacement risk."
