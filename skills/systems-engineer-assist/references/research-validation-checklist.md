@@ -3,6 +3,8 @@
 Use this checklist during pre-authoring research and again after generation.
 Record only the rows relevant to the target artifact, but make each recorded
 answer traceable to a source, command, rendered artifact, or test result.
+Use the [skill source history](sources.md) as a baseline,
+then refresh version-sensitive facts from the authoritative target source.
 
 ## Pre-Authoring Research
 
@@ -101,3 +103,11 @@ answer traceable to a source, command, rendered artifact, or test result.
   results that prove validation.
 - Known limitations, unsupported combinations, unresolved risks, and why they
   are bounded.
+# Reuse-First Gate
+
+- Existing project dependency, template, or capability searched
+- Platform-native primitive considered
+- Maintained, well-known open-source libraries/templates compared
+- Maintenance, adoption, license, security, compatibility, operational burden, and integration cost recorded
+- Selected solution and rejected alternatives documented
+- Custom implementation gap and maintenance burden demonstrated when applicable
